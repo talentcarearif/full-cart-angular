@@ -1,0 +1,97 @@
+<div class="container">
+    <div class="col-md-12 form-title-text-border">
+        <div class="d-flex justify-content-between align-items-center">
+            <div>
+                <span class="form-title-text">New User Registration</span>
+            </div>
+            <div>      
+                <mat-icon matTooltip="Back" class="sr-10 cp" (click)="commonService.goBackCommand()">arrow_back</mat-icon>
+                <mat-icon matTooltip="Refresh" class="sr-10 cp" (click)="commonService.refreshPage(router.url)">refresh</mat-icon>
+                <mat-icon matTooltip="Save Data" class="save-icon cp" (click)="onSubmit()">save</mat-icon>
+            </div>
+        </div>
+    </div>
+  
+    <mat-card class="mat-card-gap">
+        <div class="col-md-12">
+            <form [formGroup]="form" autocomplete="off">
+                <mat-form-field class="col-md-4">
+                    <mat-label>First Name</mat-label>
+                    <input matInput formControlName="firstName" placeholder="Type First Name">  
+                    @if (form.controls['firstName'].status == 'INVALID') {
+                        <mat-error>
+                            You must enter first name
+                        </mat-error>
+                    }      
+                </mat-form-field>
+                <mat-form-field class="col-md-4">
+                    <mat-label>Last Name</mat-label>
+                    <input matInput formControlName="lastName" placeholder="Type Last Name (Optional)">       
+                </mat-form-field>
+                <mat-form-field class="col-md-4">
+                    <mat-label>Email</mat-label>
+                    <input matInput formControlName="email" placeholder="Type Email">
+                    @if (form.controls['email'].status == 'INVALID') {
+                        <mat-error>
+                            You must enter your email with format
+                        </mat-error>
+                    }
+                </mat-form-field>
+                <mat-form-field class="col-md-4">
+                    <mat-label>Password</mat-label>
+                    <input matInput type="password" formControlName="password" placeholder="Type password">
+                    @if (form.controls['password'].status == 'INVALID') {
+                        <mat-error>
+                            You must enter a password
+                        </mat-error>
+                    }
+                </mat-form-field>  
+                <mat-form-field class="col-md-4">
+                    <mat-label>Password</mat-label>
+                    <input matInput type="password" formControlName="rePassword" placeholder="ReType password">
+                    @if (form.controls['rePassword'].status == 'INVALID') {
+                        <mat-error>
+                            You must enter same password again
+                        </mat-error>
+                    }
+                </mat-form-field> 
+                <mat-form-field class="col-md-4">
+                    <mat-label>Mobile</mat-label>
+                    <input matInput  formControlName="mobile" placeholder="Type mobile no.">
+                    @if (form.controls['mobile'].status == 'INVALID') {
+                        <mat-error>
+                            You must enter a mobile no.
+                        </mat-error>
+                    }
+                </mat-form-field> 
+                <mat-form-field class="col-md-4">
+                    <mat-label>Address</mat-label>
+                    <input matInput  formControlName="address" placeholder="Type your address">
+                    @if (form.controls['address'].status == 'INVALID') {
+                        <mat-error>
+                            You must enter your address
+                        </mat-error>
+                    }
+                </mat-form-field> 
+                <mat-form-field class="col-md-4">
+                    <mat-label>User Role</mat-label>                
+                    <mat-select  formControlName="userRoleId">
+                        <mat-option selected value='' [disabled]="disableRoleList">
+                            --- Select Role ---
+                        </mat-option>
+                        @for(i of roleList; track i.id) {
+                            <mat-option [value]="i.id" [disabled]="disableRoleList">
+                                {{i.roleName | titlecase}}
+                            </mat-option>
+                        }                  
+                    </mat-select>
+                    @if (form.controls['userRoleId'].status == 'INVALID') {
+                        <mat-error>
+                            You must select a role
+                        </mat-error>
+                    }
+                </mat-form-field>   
+            </form>
+        </div>
+    </mat-card>
+</div>

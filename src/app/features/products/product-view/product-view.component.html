@@ -1,0 +1,87 @@
+<div class="container">
+    <div class="col-md-12 form-title-text-border">
+        <div class="d-flex justify-content-between align-items-center">
+            <div>
+                <span class="form-title-text">View Product List</span> 
+            </div>
+            <div>      
+                <!-- <mat-icon matTooltip="Back" class="sr-10 cp" (click)="commonService.goBackCommand()">arrow_back</mat-icon> -->
+                <mat-icon matTooltip="Refresh" class="sr-10 cp" (click)="refreshComponent()">refresh</mat-icon>
+                <mat-icon matTooltip="Add Data" class="save-icon cp" (click)="goToAddProductPage()">add</mat-icon>
+            </div>
+        </div>
+    </div>
+  
+    <mat-card class="mat-card-gap">        
+        <div>
+           <div class="d-flex justify-content-between align-items-center">           
+               <mat-form-field>
+                    <input matInput 
+                           placeholder="Search"
+                           (keyup)="applyFilter($event)" 
+                           autocomplete="off"
+                    >    
+                    <mat-icon matPrefix>search</mat-icon>  
+                </mat-form-field>
+
+              <button class="mb-3" mat-raised-button color="primary" (click)="onGenerateExcelConfirmation()">
+                Download Excel
+              </button>            
+            </div>
+
+            <table mat-table [dataSource]="dataSource" class="mat-data-table">
+          
+              <ng-container matColumnDef="productName">
+                <th mat-header-cell *matHeaderCellDef> Product Name </th>
+                <td mat-cell *matCellDef="let element"> {{element?.productName}} </td>
+              </ng-container>
+                        
+              <ng-container matColumnDef="description">
+                <th mat-header-cell *matHeaderCellDef> Description </th>
+                <td mat-cell *matCellDef="let element"> {{element?.description}} </td>
+              </ng-container>
+          
+              <ng-container matColumnDef="price">
+                <th mat-header-cell *matHeaderCellDef> Price </th>
+                <td mat-cell *matCellDef="let element"> {{element?.price | number}} </td>
+              </ng-container>
+          
+              <ng-container matColumnDef="quantity">
+                <th mat-header-cell *matHeaderCellDef> Quantity </th>
+                <td mat-cell *matCellDef="let element"> {{element?.quantity | number}} </td>
+              </ng-container>
+      
+              <ng-container matColumnDef="category">
+                <th mat-header-cell *matHeaderCellDef> Category </th>
+                <td mat-cell *matCellDef="let element"> {{element?.category?.categoryName}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="brand">
+                <th mat-header-cell *matHeaderCellDef> Brand </th>
+                <td mat-cell *matCellDef="let element"> {{element?.brand?.brandName}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="action">
+                <th mat-header-cell *matHeaderCellDef> Action </th>
+                <td mat-cell *matCellDef="let element"> 
+                    <mat-icon class="cp sr-5" matTooltip="Edit Data" (click)="editProductById(element)">
+                        edit
+                    </mat-icon> 
+                    <mat-icon class="delete-forever-icon cp" matTooltip="Delete Data" (click)="deleteProductById(element?.id)">
+                        delete_forever
+                    </mat-icon> 
+                </td>
+              </ng-container>
+          
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+          
+            <mat-paginator [pageSizeOptions]="[5, 10, 20, 50, 100]"
+                           showFirstLastButtons
+                           aria-label="Select page of periodic elements">
+            </mat-paginator>
+          </div>
+          
+    </mat-card>
+</div>

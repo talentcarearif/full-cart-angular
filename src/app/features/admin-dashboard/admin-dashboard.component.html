@@ -1,0 +1,97 @@
+<div class="d-flex">
+    <div class="col-2">                
+        <div class="list-group" id="list-tab" role="tablist">
+            <a class="list-group-item list-group-item-action admin-menu" 
+               id="list-admin-list" 
+               data-toggle="list" 
+               role="tab" 
+               aria-controls="admin">
+               Admin Menu
+            </a>
+            <a class="list-group-item list-group-item-action cp"
+                [ngClass]="activeClass('registration')"
+                id="list-category-list" 
+                data-toggle="list" 
+                (click)="changeComponent('registration')"
+                role="tab" 
+                aria-controls="category">
+                New User Registration
+            </a>
+            <a class="list-group-item list-group-item-action cp"
+               [ngClass]="activeClass('category')"
+               id="list-category-list" 
+               data-toggle="list" 
+               (click)="changeComponent('category')"
+               role="tab" 
+               aria-controls="category">
+               Category
+            </a>
+            <a class="list-group-item list-group-item-action cp" 
+               [ngClass]="activeClass('brand')"
+               id="list-brand-list" 
+               data-toggle="list" 
+               (click)="changeComponent('brand')"
+               role="tab" 
+               aria-controls="brand">
+               Brand
+            </a>
+            <a class="list-group-item list-group-item-action cp" 
+               [ngClass]="activeClass('product-view')"
+               id="list-product-list" 
+               data-toggle="list" 
+               (click)="changeComponent('product-view')"
+               role="tab" 
+               aria-controls="product">
+               Product
+            </a>
+            <a class="list-group-item list-group-item-action cp" 
+               [ngClass]="activeClass('order-details')"
+               id="list-order-det-list" 
+               data-toggle="list" 
+               (click)="changeComponent('order-details')"
+               role="tab" 
+               aria-controls="order-details">
+               Order Details
+            </a>
+          </div>
+    </div>
+    <div class="col-10">
+        @if(showComponent == 'category') {
+            <app-category>
+        
+            </app-category>
+        }
+        
+        @if(showComponent == 'brand') {
+            <app-brand>
+        
+            </app-brand>    
+        }
+
+        @if(showComponent == 'product-view') {
+            <app-product-view>
+        
+            </app-product-view>    
+        }
+
+        @if(showComponent == 'order-details') {
+            <app-order-details>
+
+            </app-order-details>
+        }
+
+        @if(showComponent == 'product') {
+            <app-products [getEmittedData]="componentData">
+        
+            </app-products>    
+        }
+
+        @if(showComponent == 'registration') {
+            <app-user-register>
+
+            </app-user-register>
+        }
+    </div>
+</div>
+
+

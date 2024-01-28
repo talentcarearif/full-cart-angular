@@ -1,0 +1,18 @@
+<body>
+    <section class='login' id='login'>
+    <div class='head'>
+        <h1 class='company'>Login</h1>
+    </div>
+    <p class='msg'>Welcome back</p>
+    <div class='form'>
+        <form [formGroup]="form" autocomplete="off">
+            <input formControlName="userEmail" type="text" placeholder='Email' class='text' id='username' required><br>
+            <input formControlName="password" type="password" placeholder='••••••••••••••' class='password'><br>
+            <button class="cp custom-btn btn-12" (click)="onSubmit()">
+                <span>Click to Login</span><span>Login</span>
+            </button>
+            <a routerLink="/registration" class='register'>New Here? Register</a>
+        </form>
+    </div>
+    </section>
+</body>

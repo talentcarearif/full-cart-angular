@@ -1,0 +1,92 @@
+<div class="container">
+    <div class="col-md-12 form-title-text-border">
+        <div class="d-flex justify-content-between align-items-center">
+            <div>
+                <span class="form-title-text">Order Summary</span> 
+            </div>
+            <div>      
+                <button mat-raised-button (click)="confirmOrder()" color="primary">
+                    Place Order
+                </button>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="row col-md-12 table-div">
+            <div  class="col-md-6">
+                <div class="column col-md-12">
+                    <div  class="col-md-12 border border-secondary p-2 mb-3">
+                        <div>
+                            <b>Delivered To: </b> {{userInfo.firstName}}
+                        </div>
+                        <div>
+                            <b>Mobile No: </b> {{userInfo.mobile}}
+                        </div>
+                        <div>
+                            <b>Address: </b> {{userInfo.address}}
+                        </div>
+                        <div>
+                            <b>Email: </b> {{userInfo.email}}
+                        </div>
+                    </div>
+                    <div  class="col-md-12">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th class="product">Product</th>
+                                    <th>Quantity</th>
+                                    <th>Total Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @for(i of cartList; track i.id; let j = $index){
+                                <tr>
+                                    <td class="product">
+                                        <div class="product-name">
+                                            {{i?.product?.productName}}
+                                        </div>
+                                        <div>
+                                            @if(i.product.imagePath != null && i.product.imagePath != '') {
+                                                <img class="mat-card-image-table"
+                                                    [src]="i.product.imagePath" 
+                                                    [alt]="i.product.productName"
+                                                >
+                                            }
+                                            @else {
+                                                <img class="mat-card-image-table"
+                                                    [src]="'../../../assets/images/noImage.jpg'" 
+                                                    [alt]="i.product.productName"
+                                                >
+                                            }
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        {{i?.count}} x {{i?.product?.price | currency}}
+                                    </td>
+                                    <td class="text-center">
+                                        {{i?.price | number}}
+                                    </td>
+                                </tr>    
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 border border-secondary">
+                <div class="mb-3">
+                    <span class="order-summary">Order Summary</span>
+                </div>
+                <div>
+                    <b>Item Total:</b> {{orderSummary.totalItem | number}}
+                </div>
+                <div>
+                    <b>Delivery Fee:</b> {{orderSummary.deliveryFee}}
+                </div>
+                <div>
+                    <b>Total Payment:</b> {{orderSummary.totalPayment | currency}}
+                </div>
+            </div>    
+        </div>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+<div class="container">   
+    <div class="modal-title-header mb-5 mt-3">
+        <span>{{form.value.id > 0? 'Edit Category' : 'Create New Category'}}</span>
+    </div>
+    <div class="col-md-12 mb-5">
+        <form [formGroup]="form" autocomplete="off">
+            <mat-form-field class="col-md-12">
+                <mat-label>Category Name</mat-label>
+                <input matInput formControlName="categoryName" placeholder="Type Category Name">  
+                @if (form.controls['categoryName'].status == 'INVALID') {
+                    <mat-error>
+                        You must enter category name
+                    </mat-error>
+                }      
+            </mat-form-field>              
+        </form>
+    </div>
+    <div class="d-flex justify-content-end mt-5">
+        <button mat-raised-button color="warn" [mat-dialog-close]=false>
+            Back
+        </button>
+        <button class="gap-between-buttons" mat-raised-button (click)="onSubmit()" color="primary">
+            Save
+        </button>  
+    </div>
+</div>

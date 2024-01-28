@@ -1,0 +1,4 @@
+export interface User {
+    userEmail: string;
+    password: string;
+}

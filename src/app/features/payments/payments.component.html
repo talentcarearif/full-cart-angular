@@ -1,0 +1,56 @@
+<div class="container">
+    <div class="col-md-12 form-title-text-border">
+        <div class="d-flex justify-content-between align-items-center">
+            <div>
+                <span class="form-title-text">Select Payment Method</span> 
+            </div>
+            <div>      
+                <button mat-raised-button (click)="paymentOrder()" color="primary">
+                    Payment
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="table-div">
+        <div class="d-flex">
+            <div class="col-md-9 mat-card-setup">
+                <div class="row d-flex">
+                    <mat-card class="payment-card" (click)="paymentOrder()">
+                        <div class="d-flex justify-content-center">
+                            <div class="mt-4">
+                                <div class="d-flex justify-content-center">
+                                    <img src="../../../assets/images/debit-card.png" height="50" width="50">
+                                </div>
+                                <div>
+                                    Debit/Credit Card
+                                </div>
+                            </div>
+                        </div>
+                    </mat-card>
+                    <mat-card class="payment-card" (click)="paymentOrder()">
+                        <div class="d-flex justify-content-center">
+                            <div class="mt-4">
+                                <div class="d-flex justify-content-center">
+                                    <img src="../../../assets/images/dollar.png" height="50" width="50">
+                                </div>
+                                <div>
+                                    Cash On Delivery
+                                </div>
+                            </div>
+                        </div>
+                    </mat-card>
+                </div>
+            </div>
+            <div class="col-md-3 border border-secondary p-3">
+                <div class="mb-3">
+                    <span class="order-summary">Order summary</span>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                    <span>Total Amount</span>
+                    <span>{{totalAmount | currency}}</span>
+                </div>
+            </div> 
+        </div>            
+    </div>
+    
+</div>

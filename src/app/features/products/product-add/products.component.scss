@@ -1,0 +1,39 @@
+mat-form-field {
+    padding: 15px;
+}
+
+.exl-title {
+    color: #606ebf;
+    font-weight: bold;
+}
+
+/* this section start for html table */
+table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  th {
+    background-color: #606ebf !important;
+    color: white !important;
+  }
+
+  td, th {
+    border-bottom: 1px solid #a9a9a9; 
+    border-top: 1px solid #a9a9a9; 
+    padding: 8px;
+  }
+  
+  td:first-child, th:first-child {
+    border-left: 1px solid #a9a9a9; 
+  }
+  
+  td:last-child, th:last-child {
+    border-right: 1px solid #a9a9a9;
+  }
+  
+  td, th {
+    text-align: center;
+  }
+  
+/* this section end for html table */

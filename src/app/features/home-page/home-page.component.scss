@@ -1,0 +1,48 @@
+.product-card {
+    max-width: 400px;
+}
+  
+.product-header-image {
+    background-image: url('https://play-lh.googleusercontent.com/qXd0gnLo4urz-VlQqCfC7DpbjbHBj2bY9nIbcrKwSYYpZxgj4C6ronZYmZkGXlDeJic');
+    background-size: cover;
+}
+
+.card-div {
+    padding: 5px 5px 10px 20px;
+}
+
+.card-input-count {
+    width: 50px;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    border: 1px solid #bdbdbd;
+    text-align: center;
+    padding-bottom: 5px;
+}
+
+.card-add-icon {
+    color: green;
+}
+
+.card-remove-icon {
+    color: red;
+}
+
+.mat-card-image-2 {
+    min-height: 250px;
+    max-height: 250px;
+}
+
+.mat-card-pro {
+    margin-top: 10px;
+    background-color: #f7f7f7;
+    border: 1px solid #c8c8c8;
+    border-radius: 5px;
+    padding: 7px;
+}
+
+.header-comp {
+    border: 1px solid #b5b5b5 !important;
+}
+  
+  

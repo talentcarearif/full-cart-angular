@@ -1,0 +1,71 @@
+table {
+    width: 100%;
+}
+
+.search-field {
+    max-width: 250px !important;
+}
+
+.icon-border {
+    background-color: #ebf0f7 !important;
+    border: 1px solid #dbe5f3;
+}
+
+
+.heading {
+    font-size: 18px;
+    font-weight: 500;
+    color: #414141;
+    padding-bottom: 6px;
+    text-align: left;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  table th:not(:first-child) {
+    border-left: 1px solid #cad6e4;
+  }
+  
+  table td {
+    border: 1px solid #cad6e4 !important;
+    padding: 8px 5px;
+    background-color: #fff;
+  }
+  
+  .table1 th {
+    background-color: #606ebf;
+    color: white;
+    padding: 8px 5px;
+    font-weight: 500;
+  }
+  
+  .table1 thead {
+    border: 1px solid #606ebf;
+  }
+  
+  .table2 th {
+    background-color: #e6e6e6; /* #274a97a2;*/
+    color: #414141;
+    padding: 8px 5px;
+    font-weight: 500;
+  }
+  
+  .table2 thead {
+    border: 1px solid #cad6e4;
+  }
+
+  .expand-section {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    padding-bottom: 20px !important;
+    background-color: #e3eaf2 !important;
+  }
+
+  .payment-text {
+    color: red;
+  }
+  
+

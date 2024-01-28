@@ -1,0 +1,49 @@
+.toolbar-spacer {
+    flex: 1 1 auto;
+}
+
+.buttons-gap {
+    margin-left:15px;
+    background-color: white;
+}
+
+.logout-icon {
+    font-size: 1.6rem;
+    margin: 0px 10px 6px 15px;
+    padding: 1px;
+}
+
+.icon-mod {
+    padding-top: 5px !important;
+}
+
+.cart-icon-mod {
+    top: 20px; 
+    font-size: 1.8rem;
+    margin-left: 15px;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.cart-icon {
+    background-color: red;
+    top: 50px !important; 
+    font-size: 1.8rem !important;
+    margin-left: 15px !important;
+    margin-top: 5px !important;
+}
+
+.app-logo {
+    cursor: pointer;
+}
+
+.mat-toolbar-modify {
+    background-color: #606ebf;
+    color: white;
+}
+
+.app-name {
+    font-size: 1.7rem;
+    color: #eec448; text-shadow: -6px 4px 8px #000000;
+    font-weight: bold;     
+}

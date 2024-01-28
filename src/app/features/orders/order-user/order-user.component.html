@@ -1,0 +1,100 @@
+<div class="container">
+  <div class="col-md-12 form-title-text-border">
+      <div class="d-flex justify-content-between align-items-center">
+          <div>
+              <span class="form-title-text">Customer Order Details List</span> 
+          </div>
+          <div>      
+              <mat-icon matTooltip="Refresh" class="sr-10 cp" (click)="refreshComponent()">refresh</mat-icon>
+          </div>
+      </div>
+  </div>
+
+  <mat-card class="mat-card-gap">        
+      <div>
+          <div class="mb-3 mt-2">
+              <mat-form-field class="col-md-4">
+                  <input matInput 
+                         placeholder="Search"
+                         (keyup)="applyFilter($event)" 
+                         autocomplete="off"
+                  >    
+                  <mat-icon matPrefix>search</mat-icon>  
+              </mat-form-field>
+          </div>
+
+          <div class="scroll">
+            <table class="table1">
+              <thead>
+                <tr class="text-center">
+                  <th></th>
+                  <th> Srl# </th>
+                  <th> Order Date </th>
+                  <th> User</th>
+                  <th> Total Order </th>
+                  <th> Order Status </th>
+                  <th> Action </th>
+                </tr>
+              </thead>
+              <tbody>
+                <ng-container *ngFor="let row of itemArray;  let i = index">
+                  <tr class="text-center">
+                    <td class="text-center">
+                      <button mat-icon-button color="primary" [matTooltip]="row.isExpand? 'Less expand' : 'More expand'" (click)="row.isExpand = !row.isExpand" class="icon-border">
+                        <mat-icon>{{ row.isExpand? 'expand_less' : 'expand_more' }}</mat-icon>
+                      </button>
+                    </td>
+                    <td class="text-center"> {{ i+1 }}</td>
+                    <td>{{ row?.orderDate | date: 'dd/MM/yyyy' }}</td>
+                    <td>{{ row?.userName }}</td>
+                    <td>{{ row?.orderTotal }}</td>
+                    <td [ngClass]="row?.orderStatus == 'Cancelled'? 'payment-text ' : ''">
+                      {{ row?.orderStatus }}
+                    </td>
+      
+                    <td class="text-center">
+                      @if(row.orderStatus != "Cancelled") {
+                        <mat-icon class="cp delete-forever-icon" (click)="cancelCustomerOrder(row?.id)">
+                          delete_forever
+                        </mat-icon>
+                      }
+                    </td>
+                  </tr>
+                  <tr *ngIf="row.isExpand" class="text-center">
+                    <td colspan="7" class="expand-section">
+                      <p class="heading"> Order Details </p>
+                      <table class="table2">
+                        <thead>
+                          <th> Product Name </th>
+                          <th> Count </th>
+                          <th> Price </th>
+                          <th> Total Price </th>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let child of row?.orderDetails; let j = index">
+                            <td>
+                              {{ child?.product?.productName }}
+                            </td>
+                            <td>
+                              {{ child?.count | number }}
+                            </td>
+                            <td>
+                              {{ child?.price | number }}
+                            </td>
+                            <td>
+                              {{child?.count * child?.price}}
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                </ng-container>
+              </tbody>
+            </table>
+          </div>  
+
+        </div>
+        
+  </mat-card>
+</div>
